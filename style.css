@@ -5,8 +5,8 @@
 
 :root {
     --bg-color: #fed7aa;
-    --main-accent: #9a3412;
-    --book-color: #b45309;
+    --dark-accent: #9a3412;
+    --light-accent: #b45309;
     --shadow-color: #e2a360;
 
     --gaps: 5vmin;
@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    background-color: var(--main-accent);
+    background-color: var(--dark-accent);
     color: white;
     padding: 15px;
     font-size: 1.5rem;
@@ -43,7 +43,7 @@ header {
 .book {
     position: relative; 
 
-    background-color: var(--book-color);
+    background-color: var(--light-accent);
     color: white;
     padding: 15px;
 
@@ -66,7 +66,7 @@ header {
 }
 .book .read-or-not {
     border-radius: 1000000px;
-    background-color: var(--main-accent);
+    background-color: var(--dark-accent);
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -87,7 +87,7 @@ header {
     width: var(--removeBtn-dim);
 }
 .book button:hover {
-    background-color: var(--main-accent);
+    background-color: var(--dark-accent);
 }
 .book button img {
     object-fit: cover;
@@ -105,7 +105,73 @@ header {
     transition: background-color 0.3s ease-out;
 }
 .add-book:hover {
-    background-color: var(--book-color);
+    background-color: var(--light-accent);
 }
 
 
+
+
+
+.obscure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.548);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(1px);
+
+    z-index: 1;
+}
+
+.add-book-modal {
+    z-index: 2;
+    background-color: var(--light-accent);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    border-radius: 10px;
+    padding: 25px 35px;
+
+    color: white;
+}
+.add-book-modal h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+.add-book-modal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1.2rem;
+}
+.add-book-modal form input[type="text"] {
+    margin-bottom: 10px;
+
+    color: white;
+    font-size: 1.2rem;
+    background: var(--dark-accent);
+
+    border-style: none;
+    border-radius: 10000px;
+    padding: 0.5em 1.2em;
+}
+.add-book-modal input[type="text"]::placeholder {
+    color: var(--shadow-color);
+}
+.add-book-modal form .checkbox {
+    margin: 15px 0;
+}
+.add-book-modal form button {
+    
+}

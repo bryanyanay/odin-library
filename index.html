@@ -60,9 +60,26 @@
             </div>
             <button type="button" class="add-book card">+ Add Book</div>
         </div>
+
+        <div class="obscure"></div> <!--used as a dark overlap for when a modal is active-->
+        <div class="add-book-modal">
+            <h2>Add a Book</h2>
+            <form> <!--not your traditional form; no submission happens, I just get the info from the textboxes in client-side js-->
+                <input type="text" placeholder="title">
+                <input type="text" placeholder="author">
+                <input type="text" placeholder="number of pages">
+                
+                <div class="checkbox">
+                    <input type="checkbox" name="" id="read">
+                    <label for="read">I have read the book</label>
+                </div>
+
+                <button type="button">Add</button>
+            </form>
+        </div>
     </main>
     <footer>
-        
+
     </footer>
 </body>
 </html>
