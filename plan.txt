@@ -2,3 +2,4 @@
 2. get the add book modal going (create a general modal functionality??)
 3. get info harvesting from the form going
 4. add the book's info into the library to be displayed
+5. implement removing books
