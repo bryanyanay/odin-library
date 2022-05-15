@@ -9,7 +9,7 @@
     --light-accent: #b45309;
     --shadow-color: #e2a360;
 
-    --gaps: 5vmin;
+    --gaps: 6vmin;
 
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -32,7 +32,8 @@ header {
 
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: max(150px, 30vh);
 
     gap: var(--gaps);
     margin: var(--gaps);
