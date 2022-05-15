@@ -18,6 +18,8 @@ html {
     position: relative;
     /* this is so that obscure will position itself relative to the HTML element which is basically the whole page */
     /* otherwise it would position relative to initial containing block, whose dimensions are the viewport (see https://www.w3.org/TR/CSS2/visudet.html#containing-block-details), so if we scroll obscure won't be there */
+
+    min-height: 100vh; /* otherwise if viewport height is more than the height of the content inside the html element it seems that the html element would be less than viewport height, which means obscure won't cover the full viewport */    
 }
 
 body {
