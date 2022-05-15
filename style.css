@@ -79,6 +79,9 @@ header {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
+.book .read-or-not:hover {
+    box-shadow: 0 3px 0 var(--shadow-color);
+}
 .book button {
     display: flex;
     align-items: center;
