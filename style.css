@@ -14,6 +14,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    position: relative;
+    /* this is so that obscure will position itself relative to the HTML element which is basically the whole page */
+    /* otherwise it would position relative to initial containing block, whose dimensions are the viewport (see https://www.w3.org/TR/CSS2/visudet.html#containing-block-details), so if we scroll obscure won't be there */
+}
+
 body {
     background-color: var(--bg-color);
 }
@@ -96,7 +102,7 @@ header {
     height: calc(var(--removeBtn-dim) * 0.9);
 }
 
-.add-book {
+.add-book-btn {
     border-style: none;
     
     font-size: 1.5rem;
@@ -105,7 +111,7 @@ header {
     color: var(--bg-color);
     transition: background-color 0.3s ease-out;
 }
-.add-book:hover {
+.add-book-btn:hover {
     background-color: var(--light-accent);
 }
 
@@ -114,11 +120,13 @@ header {
 
 
 .obscure {
+    display: none;
+
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
 
     background-color: rgba(0, 0, 0, 0.548);
     backdrop-filter: blur(3px);
@@ -135,10 +143,11 @@ header {
     flex-direction: column;
     align-items: center;
 
-    position: absolute;
+    position: fixed; /* fixed makes sure it appears in middle no matter where u scroll */
     top: 50vh;
     left: 50vw;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.1s ease-out;
 
     border-radius: 10px;
     padding: 25px 35px;
@@ -193,4 +202,11 @@ header {
 }
 .add-book-modal form button:hover {
     box-shadow: 0 3px 0 var(--shadow-color);
+}
+
+.obscure.showing {
+    display: block;
+}
+.add-book-modal.showing {
+    transform: translate(-50%, -50%) scale(1);
 }
