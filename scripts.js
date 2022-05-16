@@ -22,7 +22,7 @@ const Library = (function() {
             return element;
         }
         bookDOM.appendChild(ewt("h3", book.title));
-        bookDOM.appendChild(ewt("p", book.author));
+        bookDOM.appendChild(ewt("p", `by ${book.author}`));
         bookDOM.appendChild(ewt("p", `${book.pages} pages`));
         
         const readOrNot = ewt("p", (book.read)?"Already read!":"Not read yet!");
