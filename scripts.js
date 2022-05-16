@@ -28,7 +28,7 @@ const Library = (function() {
         const readOrNot = ewt("p", (book.read)?"Already read!":"Not read yet!");
         readOrNot.className = "read-or-not";
         readOrNot.onclick = (e) => {
-            toggleRead(index, e.target); // closures allow the event handlers to keep access to the index
+            toggleRead(e.target.parentNode.getAttribute("data-library-index"), e.target);
         }
         bookDOM.appendChild(readOrNot);
 
@@ -36,7 +36,8 @@ const Library = (function() {
         closeBtn.type = "button";
         closeBtn.innerHTML = `<img src="close.svg" alt="close icon">`;
         closeBtn.onclick = (e) => {
-            removeBook(index);
+            // we need currentTarget, since the target may be the img inside the button
+            removeBook(e.currentTarget.parentNode.getAttribute("data-library-index")); // we can't just use the index parameter, since the index might change (see removeBook)
         }
         bookDOM.appendChild(closeBtn);
 
@@ -50,6 +51,11 @@ const Library = (function() {
         books.splice(index, 1);
         document.querySelector(`.book[data-library-index="${index}"]`)
             .remove();
+        
+        Array.from(booksDOM.children).slice(index)
+            .forEach((book) => { 
+                book.setAttribute("data-library-index", book.getAttribute("data-library-index") - 1);
+            });
     }
     function toggleRead(index, textContainer) {
         books[index].read = !books[index].read;
